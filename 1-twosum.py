@@ -20,7 +20,6 @@ def twoSum(nums, target):
             return [val_index[target-nums[i]]+1, i+1]
         val_index[nums[i]] = i
 
-
 import unittest
 
 class MyTest(unittest.TestCase):  
