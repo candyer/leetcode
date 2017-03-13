@@ -24,10 +24,8 @@ def removeElement(nums, val):
     # solution 2
     n = len(nums)
     for i in range(n-1, -1, -1):
-        print i, nums[i], nums[n-1], nums[n-1], nums[i]
         if nums[i] == val:
             nums[i], nums[n-1] = nums[n-1], nums[i]
-            print nums
             n -= 1
     return n
 
