@@ -29,10 +29,52 @@
 # N is a positive integer and will not exceed 15.
 
 
+
+##########################
+##### solution 1 #########
+##########################
+
 def countArrangement(N):
 	"""
 	:type N: int
 	:rtype: int
 	"""
-	res = [1, 1, 2, 3, 8, 10, 36, 41, 132, 250, 700, 750, 4010, 4237, 10680, 24679]
-	return res[N]       
+	memo = {}
+
+	def helper(size, nums):
+		if size == 1:
+			return 1
+		key = nums
+		if key in memo:
+			return memo[key]
+		res = 0
+
+		for i in range(len(nums)):
+			if size % nums[i] == 0 or nums[i] % size == 0:
+				res += helper(size - 1, nums[:i] + nums[i + 1:])
+		memo[key] = res
+		return res
+
+	return helper(N, tuple(range(1, N + 1)))
+
+
+##########################
+##### solution 2 #########
+##########################
+
+# def countArrangement(N):
+# 	"""
+# 	:type N: int
+# 	:rtype: int
+# 	"""
+# 	res = [1, 1, 2, 3, 8, 10, 36, 41, 132, 250, 700, 750, 4010, 4237, 10680, 24679]
+# 	return res[N]   
+
+
+print countArrangement(4) == 8
+
+
+
+
+
+
