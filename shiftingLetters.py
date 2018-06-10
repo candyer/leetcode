@@ -3,13 +3,9 @@
 # 848. Shifting Letters
 
 # We have a string S of lowercase letters, and an integer array shifts.
-
 # Call the shift of a letter, the next letter in the alphabet, (wrapping around so that 'z' becomes 'a'). 
-
 # For example, shift('a') = 'b', shift('t') = 'u', and shift('z') = 'a'.
-
 # Now for each shifts[i] = x, we want to shift the first i+1 letters of S, x times.
-
 # Return the final string after all such shifts to S are applied.
 
 # Example 1:
@@ -47,14 +43,14 @@ def shiftingLetters(S, shifts):
 			res[i] = chr((ord(c) + num))
 	return ''.join(res)
 
-
 assert shiftingLetters("abc", [3,5,9]) == 'rpl'
 assert shiftingLetters("abc", [1,50,90]) == 'llo'
 assert shiftingLetters("azt", [1234567, 987654, 45671234]) == 'zpr'
 
+
+
 from random import randint as r
 from random import choice as c
-
 n = r(1, 10)
 S = []
 shifts = []
@@ -62,7 +58,6 @@ for i in range(n):
 	S.append(c('abcdefghijklmnopqrstuvwxyz'))
 	shifts.append(r(1, 1000000000))
 S = ''.join(S)
-
 print S, shifts
 print shiftingLetters(S, shifts)
 
