@@ -1,5 +1,7 @@
 # https://leetcode.com/problems/day-of-the-year/description/
 
+# 1154. Day of the Year
+
 # Given a string date representing a Gregorian calendar date formatted as YYYY-MM-DD, 
 # return the day number of the year.
 
@@ -27,26 +29,6 @@
 # date.length == 10
 # date[4] == date[7] == '-', and all other date[i]'s are digits
 # date represents a calendar date between Jan 1st, 1900 and Dec 31, 2019.
-
-
-# def dayOfYear(date):
-# 	"""
-# 	:type date: str
-# 	:rtype: int
-# 	"""
-# 	days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-# 	running_days = [31]
-# 	for d in days[1:]:
-# 		running_days.append(running_days[-1] + d)
-# 	print running_days
-# 	year, month, day = map(int, date.split('-'))
-# 	res = 0
-# 	if month > 1:
-# 		res += running_days[month - 2]
-# 	if month > 2 and year % 4 == 0:
-# 		res += 1
-# 	res += day
-# 	return res
 
 
 def is_leap_year(year):
