@@ -2,7 +2,6 @@
 
 # 1163. Last Substring in Lexicographical Order
 
-
 # Given a string s, return the last substring of s in lexicographical order.
 
 # Example 1:
@@ -19,28 +18,49 @@
 # 1 <= s.length <= 4 * 10^5
 # s contains only lowercase English letters.
 
-from collections import defaultdict
+#####################
+#### brute force ####
+#####################
 def lastSubstring(s):
 	"""
 	:type s: str
 	:rtype: str
 	"""
-	n = len(s)
-
-	poses = []
 	maxi = max(s)
 	pre = -2
-	for i in range(n):
+	res = ''
+	for i in range(len(s)):
 		if s[i] == maxi:
 			if pre + 1 != i:
-				poses.append(i)
+				res = max(res, s[i:])
 			pre = i
-
-	res = ''
-	for pos in poses:
-		res = max(res, s[pos:])
 	return res
 
+
+#####################
+#### suffix array ###
+#####################
+def lastSubstring(s):
+	if len(set(s)) == 1:
+		return s
+	n = len(s)
+	pos = n - 1
+	for i in range(n - 2, -1, -1):
+		j = 0
+		while pos + j < n:
+			curr, tail = s[i + j], s[pos + j]
+			if curr < tail:
+				break
+			elif curr > tail:
+				pos = i
+				break
+			else:
+				j += 1
+		if pos + j == n:
+			pos = i
+	return s[pos:]
+
+assert lastSubstring('tatywyyrb') == 'yyrb'
 assert lastSubstring('abab') == 'bab'
 assert lastSubstring('leetcode') == 'tcode'
 assert lastSubstring('upgups') == 'ups'
