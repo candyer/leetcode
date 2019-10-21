@@ -20,7 +20,13 @@
 # -10^4 <= coordinates[i][0], coordinates[i][1] <= 10^4
 # coordinates contains no duplicate point.
 
+# def slope(p1, p2):
+# 	x1, y1 = p1
+# 	x2, y2 = p2
+# 	return (y1 - y2) / (float(x1) - x2)
 
+# print slope([1,2],[2,3])
+# print slope([2,3], [1,2])
 
 
 def checkStraightLine(coordinates):
@@ -32,8 +38,8 @@ def checkStraightLine(coordinates):
 	so for every new point C, check if the slope AC equals to slope AB.
 	convert the division into multiplication for better performance.
 	"""
-	x1, y1 = coordinates[1]
-	x2, y2 = coordinates[2]
+	x1, y1 = coordinates[0]
+	x2, y2 = coordinates[1]
 	return  all((y1 - y2) * ( x1 - x) == (x1 - x2) * ( y1 - y) for x, y in coordinates[2:])
 
 
