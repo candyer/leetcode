@@ -58,11 +58,10 @@ def grayCode(n):
 	:type n: int
 	:rtype: List[int]
 	"""
-	res = [0]
-	for i in range(n):
-		for num in reversed(res):
-			res.append(1 << i | num)
-	return res
+	grey_code = []
+	for num in range(1 << n):
+		grey_code.append(num >> 1 ^ num)
+	return grey_code
 
 assert grayCode(0) == [0]
 assert grayCode(1) == [0, 1]
