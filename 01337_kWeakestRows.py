@@ -1,7 +1,7 @@
 # https://leetcode.com/problems/the-k-weakest-rows-in-a-matrix/description/
 
 
-# 1341. The K Weakest Rows in a Matrix
+# 1337. The K Weakest Rows in a Matrix
 
 
 # Given a m * n matrix mat of ones (representing soldiers) and zeros (representing civilians), 
