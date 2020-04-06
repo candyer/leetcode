@@ -19,4 +19,24 @@ def moveZeroes(nums):
             nums[y], nums[x] = nums[x], nums[y]
             x += 1
 
-print moveZeroes([0, 1, 0, 3, 12])
+
+##########################################################################
+def moveZeroes(nums):
+	"""
+	Do not return anything, modify nums in-place instead.
+	"""
+	n = len(nums)
+	not_zero = 0
+	for i in range(n):
+		if nums[i] != 0:
+			nums[not_zero] = nums[i]
+			not_zero += 1
+	for i in range(not_zero, n):
+		nums[i] = 0
+	return nums
+
+assert(moveZeroes([1, 1, 1]) == [1, 1, 1])
+assert(moveZeroes([0,1,0,3,12]) == [1, 3, 12, 0, 0])
+assert(moveZeroes([0,1,0,3,12,4,0]) == [1, 3, 12, 4, 0, 0, 0])
+assert(moveZeroes([1,0,3,12,4,0]) == [1, 3, 12, 4, 0, 0])
+assert(moveZeroes([0,0,0,0,0]) == [0, 0, 0, 0, 0])
