@@ -28,7 +28,7 @@ class Solution:
     def sumOfLeftLeaves(self, root: TreeNode) -> int:
         if not root:
             return 0
-        return self.dfs(root, True)
+        return self.dfs(root, False)
 
 
 
