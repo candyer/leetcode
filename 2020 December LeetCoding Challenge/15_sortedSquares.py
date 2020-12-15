@@ -24,13 +24,30 @@
 
 from typing import List
 def sortedSquares(nums: List[int]) -> List[int]:
+	''' Time Complexity: O(nlogn) '''
 	return [num * num for num in sorted(nums, key=abs)]
 
 
-from typing import List
+
 def sortedSquares(nums: List[int]) -> List[int]:
+	''' Time Complexity: O(nlogn) '''
 	return sorted(num * num for num in nums)
 
+
+
+def sortedSquares(nums: List[int]) -> List[int]:
+	''' Time Complexity: O(n) '''
+	n = len(nums)
+	left, right, pos, res = 0, n - 1, n - 1, [0] * n
+	while left <= right:
+		if abs(nums[left]) < abs(nums[right]):
+			res[pos] = nums[right] ** 2
+			right -= 1
+		else:
+			res[pos] = nums[left] ** 2
+			left += 1
+		pos -= 1
+	return res
 
 
 assert(sortedSquares([-4,-1,0,3,10]) == [0, 1, 9, 16, 100])
