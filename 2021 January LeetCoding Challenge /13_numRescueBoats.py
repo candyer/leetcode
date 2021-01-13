@@ -29,7 +29,6 @@
 # 1 <= people[i] <= limit <= 30000
 
 
-
 from typing import List
 def numRescueBoats(people: List[int], limit: int) -> int:
     people.sort()
