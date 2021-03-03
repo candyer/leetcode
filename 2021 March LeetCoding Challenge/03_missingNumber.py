@@ -43,8 +43,8 @@ from typing import List
 
 def missingNumber(nums: List[int]) -> int:
     '''
-    Time Complexiy: O(n^2)
-    space Complexiy: O(1)
+    Time Complexity: O(n^2)
+    space Complexity: O(1)
     '''
     n = len(nums)
     for i in range(n + 1):
@@ -55,21 +55,21 @@ def missingNumber(nums: List[int]) -> int:
 
 def missingNumber(nums: List[int]) -> int:
     '''
-    Time Complexiy: O(n)
-    space Complexiy: O(n)
+    Time Complexity: O(n)
+    space Complexity: O(n)
     '''
     n = len(nums)
-    nums = set(nums)
+    arr = set(nums)
     for i in range(n + 1):
-        if i not in nums:
+        if i not in arr:
             return i
 
 
 
 def missingNumber(nums: List[int]) -> int:
     '''
-    Time Complexiy: O(n)
-    space Complexiy: O(1)
+    Time Complexity: O(n)
+    space Complexity: O(1)
     '''
     n = len(nums)
     return sum(range(n + 1)) - sum(nums)
