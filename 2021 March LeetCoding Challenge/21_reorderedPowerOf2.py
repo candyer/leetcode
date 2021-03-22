@@ -33,9 +33,16 @@
 # 1 <= N <= 10^9
 
 
+def sort_int(num: int) -> str:
+	return ''.join(sorted(str(num)))
+
 def reorderedPowerOf2(N: int) -> bool:
-	power_of_2s = [sorted(str(pow(2, i))) for i in range(31)]
-	return (sorted(str(N)) in power_of_2s)
+    power_of_2s = set()
+    num = 1
+    while num <= 10**9:
+        power_of_2s.add(sort_int(num))
+        num *= 2
+    return sort_int(N) in power_of_2s
 
 
 assert(reorderedPowerOf2(1) == True)
