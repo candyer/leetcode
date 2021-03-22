@@ -34,7 +34,7 @@
 
 
 def reorderedPowerOf2(N: int) -> bool:
-	power_of_2s = [sorted(str(pow(2, i))) for i in range(30)]
+	power_of_2s = [sorted(str(pow(2, i))) for i in range(31)]
 	return (sorted(str(N)) in power_of_2s)
 
 
