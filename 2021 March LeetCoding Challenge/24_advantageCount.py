@@ -26,14 +26,14 @@
 from typing import List
 from collections import defaultdict
 
-def advantageCount(A, B):
+def advantageCount(A: List[int], B: List[int]) -> List[int]:
     n = len(A)
     A.sort()
     match = defaultdict(list)
     notMatch = []
     i = 0
     for b in sorted(B):
-        while i < n and b >= A[i]:
+        while i < n and A[i] <= b:
             notMatch.append(A[i])
             i += 1
         if i < n:
